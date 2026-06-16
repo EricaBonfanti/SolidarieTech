@@ -7,24 +7,25 @@
 </head>
 <body>
     <div class="container">
-        <h1>🎁 Cadastrar Nova Doação</h1>
+        <h1>Cadastrar Nova Doação:</h1>
         <form method="POST">
-            <label>O que vai doar?</label>
-            <input type="text" name="item_nome" required placeholder="Ex: Arroz, Casaco...">
-
-            <label>Categoria:</label>
+        
+            <label>O que deseja doar?</label>
             <select name="categoria_opcao">
                 <option value="1">Roupa</option>
                 <option value="2">Alimento</option>
                 <option value="3">Brinquedo</option>
             </select>
 
-            <label>Detalhe Extra (Estado ou 'S' para vencimento):</label>
-            <input type="text" name="detalhe" placeholder="Ex: Bom, S, N">
+            <label>Especifique:</label>
+            <input type="text" name="item_nome" required placeholder="Ex: Arroz, Feijão, Camiseta, Calça, Boneca...">
 
-            <button type="submit" class="botao">Confirmar Doação</button>
+            <label>Detalhe Extra: (Roupa em bom estado? Comida perto do vencimento?)</label>
+            <input type="text" name="detalhe" placeholder="Ex: Bom estado...">
+
+            <button type="submit" class="botao">Confirmar Doação!</button>
         </form>
-        <a href="{{ url_for('index') }}">Voltar ao Relatório</a>
+        <a href="{{ url_for('index') }}">Voltar ao Relatório.</a>
     </div>
 </body>
 </html>
