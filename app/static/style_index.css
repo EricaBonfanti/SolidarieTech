@@ -1,0 +1,153 @@
+ :root {
+            --bg-deep: #05070a;
+            --bg-gradient-start: #0a0f14;
+            --bg-gradient-end: #05070a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --accent-cyan: #4fd1c5;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --surface-overlay: rgba(255, 255, 255, 0.03);
+            --font-main: 'Sora', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: radial-gradient(circle at 50% -20%, #1a2a3a 0%, var(--bg-deep) 70%);
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            min-height: 100vh;
+            padding: 5rem 2rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+            letter-spacing: -0.03em;
+            text-align: left;
+        }
+
+        .acoes {
+            margin-bottom: 4rem;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        /* Minimalist Button Style */
+        .botao {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 2.5rem;
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            font-weight: 400;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .botao:hover {
+            background-color: var(--text-primary);
+            color: var(--bg-deep);
+            border-color: var(--text-primary);
+        }
+
+        /* Minimalist Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        th {
+            color: var(--text-secondary);
+            text-align: left;
+            padding: 1.5rem 1rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 2rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            font-weight: 300;
+        }
+
+        tr:hover td {
+            background-color: var(--surface-overlay);
+        }
+
+        /* Status Indicators - Cinematic Contrast */
+        .urgencia-critica, .urgencia-emergência, .urgencia-alta {
+            color: #ff4d4d; /* Sharp Red */
+            font-weight: 500;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .urgencia-media, .urgencia-moderada, .urgencia-em-trânsito {
+            color: var(--accent-cyan); /* Soft Cyan */
+            font-weight: 500;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .urgencia-baixa, .urgencia-aguardando {
+            color: var(--text-secondary);
+            font-weight: 400;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            opacity: 0.7;
+        }
+
+        /* Empty State */
+        .vazio {
+            padding: 6rem 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            opacity: 0.5;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 3rem 1rem; }
+            h1 { font-size: 1.75rem; }
+            th { display: none; }
+            td { display: block; padding: 1rem 0; border: none; }
+            tr { border-bottom: 1px solid var(--border-color); display: block; padding: 1rem 0; }
+            td::before {
+                content: attr(data-label);
+                display: block;
+                font-size: 0.6rem;
+                color: var(--text-secondary);
+                text-transform: uppercase;
+                margin-bottom: 0.25rem;
+                letter-spacing: 0.1em;
+            }
+        }
