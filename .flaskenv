@@ -1,0 +1,2 @@
+FLASK_APP=doacoes.py
+FLASK_DEBUG=1

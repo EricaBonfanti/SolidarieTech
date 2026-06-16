@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Doações ABP</title>
+    <!-- Link para o CSS na pasta static -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Relatório de Logística de Doações</h1>
+        
+        <div class="acoes">
+            <!-- Link para a página do formulário que você já criou -->
+            <a href="{{ url_for('doar') }}" class="botao">Cadastrar Nova Doação</a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Categoria</th>
+                    <th>Região Destino</th>
+                    <th>Status/Urgência</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Lógica de repetição: para cada doação 'd' na lista -->
+                {% for d in doacoes %}
+                <tr>
+                    <!-- d['item'] acessa o valor no dicionário da doação -->
+                    <td>{{ d['item'].title() }}</td>
+                    <td>{{ d['categoria'] }}</td>
+                    <td>{{ d['regiao'] }}</td>
+                    <td class="urgencia-{{ d['urgencia'].lower() }}">
+                        {{ d['urgencia'] }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <!-- Caso a lista esteja vazia -->
+        {% if not doacoes %}
+            <p style="text-align:center;">Nenhuma doação cadastrada no momento.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
